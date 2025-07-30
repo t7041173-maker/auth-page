@@ -5,19 +5,23 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { AuthHeader } from "./AuthHeader";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-paypal-blue mb-2">PayPal</h1>
-          <p className="text-paypal-gray">Log in to your account</p>
-        </div>
+    <>
+      <AuthHeader showAuthButtons={false} />
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-8">
+            <p className="text-paypal-gray">Log in to your account</p>
+          </div>
 
         <Card className="border-0 shadow-lg">
           <CardHeader className="space-y-1 pb-4">
@@ -71,12 +75,12 @@ const LoginPage = () => {
             </Button>
 
             <div className="text-center">
-              <a 
-                href="/forgot-password" 
+              <button 
+                onClick={() => navigate('/forgot-password')}
                 className="text-paypal-blue hover:text-paypal-blue-hover text-sm font-medium"
               >
                 Forgot your password?
-              </a>
+              </button>
             </div>
 
             <div className="relative">
@@ -116,18 +120,19 @@ const LoginPage = () => {
             <div className="text-center pt-4">
               <p className="text-sm text-paypal-gray">
                 Don't have an account?{" "}
-                <a 
-                  href="/signup" 
+                <button 
+                  onClick={() => navigate('/signup')}
                   className="text-paypal-blue hover:text-paypal-blue-hover font-medium"
                 >
                   Sign up
-                </a>
+                </button>
               </p>
             </div>
           </CardContent>
         </Card>
       </div>
     </div>
+    </>
   );
 };
 

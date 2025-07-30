@@ -4,8 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPasswordPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -51,7 +53,7 @@ const ForgotPasswordPage = () => {
 
               <Button 
                 className="w-full h-12 bg-paypal-blue hover:bg-paypal-blue-hover text-white font-medium rounded-lg transition-colors mt-6"
-                onClick={() => window.location.href = '/login'}
+                onClick={() => navigate('/login')}
               >
                 Back to Login
               </Button>
@@ -73,7 +75,7 @@ const ForgotPasswordPage = () => {
           <CardHeader className="space-y-1 pb-4">
             <div className="flex items-center mb-4">
               <button 
-                onClick={() => window.location.href = '/login'}
+                onClick={() => navigate('/login')}
                 className="text-paypal-blue hover:text-paypal-blue-hover"
               >
                 <ArrowLeft size={20} />
@@ -114,12 +116,12 @@ const ForgotPasswordPage = () => {
             <div className="text-center pt-6">
               <p className="text-sm text-paypal-gray">
                 Remember your password?{" "}
-                <a 
-                  href="/login" 
+                <button 
+                  onClick={() => navigate('/login')}
                   className="text-paypal-blue hover:text-paypal-blue-hover font-medium"
                 >
                   Back to Login
-                </a>
+                </button>
               </p>
             </div>
           </CardContent>

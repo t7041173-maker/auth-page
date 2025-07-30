@@ -6,8 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -191,12 +193,12 @@ const SignupPage = () => {
             <div className="text-center pt-4">
               <p className="text-sm text-paypal-gray">
                 Already have an account?{" "}
-                <a 
-                  href="/login" 
+                <button 
+                  onClick={() => navigate('/login')}
                   className="text-paypal-blue hover:text-paypal-blue-hover font-medium"
                 >
                   Log in
-                </a>
+                </button>
               </p>
             </div>
           </CardContent>

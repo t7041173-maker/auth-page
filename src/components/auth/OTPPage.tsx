@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const OTPPage = () => {
+  const navigate = useNavigate();
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [isVerified, setIsVerified] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
@@ -99,7 +101,7 @@ const OTPPage = () => {
 
               <Button 
                 className="w-full h-12 bg-paypal-blue hover:bg-paypal-blue-hover text-white font-medium rounded-lg transition-colors mt-6"
-                onClick={() => window.location.href = '/dashboard'}
+                onClick={() => navigate('/')}
               >
                 Continue to Dashboard
               </Button>
@@ -121,7 +123,7 @@ const OTPPage = () => {
           <CardHeader className="space-y-1 pb-4">
             <div className="flex items-center mb-4">
               <button 
-                onClick={() => window.location.href = '/login'}
+                onClick={() => navigate('/login')}
                 className="text-paypal-blue hover:text-paypal-blue-hover"
               >
                 <ArrowLeft size={20} />

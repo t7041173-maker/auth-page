@@ -1,126 +1,102 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-paypal-gray-light flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-paypal-blue mb-4">PayPal UI Demo</h1>
-          <p className="text-xl text-paypal-gray">Beautiful authentication pages inspired by PayPal's design</p>
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border bg-background">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="text-2xl font-bold text-paypal-blue">PayPal</div>
+          <div className="space-x-4">
+            <Button 
+              variant="outline"
+              onClick={() => navigate('/login')}
+              className="border-paypal-blue text-paypal-blue hover:bg-paypal-blue-light"
+            >
+              Log In
+            </Button>
+            <Button 
+              onClick={() => navigate('/signup')}
+              className="bg-paypal-blue hover:bg-paypal-blue-hover text-white"
+            >
+              Sign Up
+            </Button>
+          </div>
         </div>
+      </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-paypal-blue">Login Page</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-paypal-gray text-sm mb-4">
-                Clean login form with email/password and OAuth options
-              </p>
-              <Button 
-                className="w-full bg-paypal-blue hover:bg-paypal-blue-hover text-white"
-                onClick={() => window.location.href = '/login'}
-              >
-                View Login
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-paypal-blue">Sign Up Page</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-paypal-gray text-sm mb-4">
-                Registration form with validation and OAuth integration
-              </p>
-              <Button 
-                className="w-full bg-paypal-blue hover:bg-paypal-blue-hover text-white"
-                onClick={() => window.location.href = '/signup'}
-              >
-                View Sign Up
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-paypal-blue">Forgot Password</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-paypal-gray text-sm mb-4">
-                Password recovery flow with email verification
-              </p>
-              <Button 
-                className="w-full bg-paypal-blue hover:bg-paypal-blue-hover text-white"
-                onClick={() => window.location.href = '/forgot-password'}
-              >
-                View Forgot Password
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-paypal-blue">Reset Password</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-paypal-gray text-sm mb-4">
-                Password reset form with strength indicators
-              </p>
-              <Button 
-                className="w-full bg-paypal-blue hover:bg-paypal-blue-hover text-white"
-                onClick={() => window.location.href = '/reset-password'}
-              >
-                View Reset Password
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-paypal-blue">OTP Verification</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-paypal-gray text-sm mb-4">
-                6-digit code verification with auto-focus
-              </p>
-              <Button 
-                className="w-full bg-paypal-blue hover:bg-paypal-blue-hover text-white"
-                onClick={() => window.location.href = '/otp'}
-              >
-                View OTP
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-paypal-blue">OAuth Integration</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-paypal-gray text-sm mb-4">
-                Google & GitHub OAuth buttons in all forms
-              </p>
-              <Button 
-                variant="outline"
-                className="w-full border-paypal-blue text-paypal-blue hover:bg-paypal-blue-light"
-                disabled
-              >
-                Integrated in Pages
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-paypal-gray">
-            All pages feature PayPal's signature white and blue color scheme with responsive design
+      {/* Hero Section */}
+      <main className="container mx-auto px-4 py-16">
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-5xl font-bold text-foreground mb-6">
+            The safer, easier way to pay online
+          </h1>
+          <p className="text-xl text-paypal-gray mb-8 max-w-2xl mx-auto">
+            PayPal is the faster, safer way to send money, make an online payment, receive money or set up a merchant account.
           </p>
+          
+          <div className="space-x-4 mb-16">
+            <Button 
+              size="lg"
+              onClick={() => navigate('/signup')}
+              className="bg-paypal-blue hover:bg-paypal-blue-hover text-white px-8 py-4 text-lg"
+            >
+              Sign Up for Free
+            </Button>
+            <Button 
+              size="lg"
+              variant="outline"
+              onClick={() => navigate('/login')}
+              className="border-paypal-blue text-paypal-blue hover:bg-paypal-blue-light px-8 py-4 text-lg"
+            >
+              Log In
+            </Button>
+          </div>
+
+          {/* Features */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-paypal-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-paypal-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Secure</h3>
+              <p className="text-paypal-gray">Your financial information is encrypted and secure</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-paypal-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-paypal-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Fast</h3>
+              <p className="text-paypal-gray">Send money in seconds to friends and family</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-paypal-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-paypal-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Global</h3>
+              <p className="text-paypal-gray">Available in over 200 countries worldwide</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-paypal-gray-light py-8 mt-16">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-paypal-gray">© 2024 PayPal. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
