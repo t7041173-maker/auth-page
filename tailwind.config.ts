@@ -61,6 +61,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				paypal: {
+					blue: 'hsl(var(--paypal-blue))',
+					'blue-hover': 'hsl(var(--paypal-blue-hover))',
+					'blue-light': 'hsl(var(--paypal-blue-light))',
+					gray: 'hsl(var(--paypal-gray))',
+					'gray-light': 'hsl(var(--paypal-gray-light))'
 				}
 			},
 			borderRadius: {
